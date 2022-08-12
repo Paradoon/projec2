@@ -1,0 +1,79 @@
+body {
+    font-family: 'Calibri';
+    transition: 0.2s ease;
+    text-align: center;
+}
+
+body.success #success-msg {
+    background-color: #b7f0b7;
+    transition: 0.2s ease;
+}
+
+body.success #success-msg {
+    opacity: 1;
+    transition: opacity 0.2 ease;
+}
+
+.game-container {
+    margin: 0px auto;
+}
+
+#map-and-controls {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    margin: 10px 0px;
+    padding: 0px;
+}
+
+.game-map {
+    position: relative;
+    margin: 0px auto;
+}
+
+div.layer,
+div.layer div {
+    position: absolute;
+}
+
+#tiles div {
+    border: 1px solid grey;
+}
+
+.default .floor {
+    background-color: lightgrey;
+}
+
+.default .wall {
+    background-color: skyblue;
+}
+
+.player, 
+.goal {
+    transform-origin: center;
+    transform:scale(0.85);
+}
+
+.player {
+    background-color: #90ee90;
+    border: 1px solid green;
+    transition: left 0.2s linear, top 0.2s linear;
+}
+
+.goal {
+    background-color: #FFD700;
+    border: 1px solid #98720b;
+}
+
+#success-msg {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    position: absolute;
+    padding: 5px 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: calc(100% - 8px);
+}
+
