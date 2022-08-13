@@ -4,7 +4,7 @@ body {
     text-align: center;
 }
 
-body.success #success-msg {
+body.success {
     background-color: #b7f0b7;
     transition: 0.2s ease;
 }
@@ -26,6 +26,7 @@ body.success #success-msg {
 p {
     margin: 10px 0px;
     padding: 0px;
+    text-align: center;
 }
 
 .game-map {
@@ -42,13 +43,13 @@ div.layer div {
     border: 1px solid grey;
 }
 
-.default .floor {
+.floor {
     background-color: lightgrey;
 }
 
-.default .wall {
+.wall {
     background-color: skyblue;
-}
+  }
 
 .player, 
 .goal {
