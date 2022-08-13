@@ -2,19 +2,21 @@ let levels = [];
 levels[0] = {
 
     map: [
-        [1,1,0,0,1],
-        [1,0,0,0,0],
-        [0,0,1,1,0],
-        [0,0,0,1,0],
-        [0,1,0,1,0]
+        [1,1,0,0,1,0,0,0],
+        [1,0,0,0,0,0,0,0],
+        [0,0,1,1,0,0,0,0],
+        [0,0,0,1,0,0,0,0],
+        [0,1,0,1,0,0,0,0],
+        [0,1,0,1,0,0,0,0],
+        [0,1,0,1,0,0,0,0]
     ],
     player: {
         x:0,
-        y:4
+        y:6
     },
     goal: {
-        x:4,
-        y:1
+        x:7,
+        y:0
     },
     theme: 'default'
 };
@@ -58,9 +60,53 @@ Game.prototype.sizeUp = function() {
     map.style.width = this.map[0].length * this.tileDim + 'px';
 };
 
+Game.prototype.placeSprite = function(type) {
+    let x = this[type].x
+    let y = this[type].y
+    let sprite = this.createEl(x, y, type);
+    sprite.id = type;
+    sprite.style.borderRadius = this.tileDim + 'px';
+    let layer = this.el.querySelector('#sprites');
+    layer.appendChild(sprite);
+    return sprite;
+}
+
+Game.prototype.keyboardListener = function() {
+    document.addEventListener('keydown', event => {
+        this.movePlayer(event);
+    });
+}
+
+Game.prototype.movePlayer = function(event) {
+    event.preventDefault();
+    if (event.keyCode < 37 || event.keyCode > 40) {
+        return;
+    }
+
+    switch (event.keyCode) {
+        case 37:
+            //move player left
+            break;
+        case 38: 
+            //move player up
+            break;
+        case 39:
+            //move player right
+            break;
+        case 40:
+            //move player down
+        break;
+    }
+}
+
 function init() {
     let myGame = new Game('game-container-1', levels[0]);
     myGame.populateMap();
     myGame.sizeUp();
+    myGame.placeSprite('goal');
+    myGame.placeSprite('player');
+    let playerSprite = myGame.placeSprite('player');
+    myGame.player.el = playerSprite;
+    myGame.keyboardListener();
 }
 init();
