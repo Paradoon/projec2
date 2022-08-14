@@ -120,11 +120,19 @@ div.layer div {
     background-color: red;
 }
 
-.wall {
+.sandland .wall {
+    background-color: yellow;
+  }
+
+.sandland .floor {
+    background-color: black;
+}
+
+.default .wall {
     background-color: red;
   }
 
-.floor {
+.default .floor {
     background-color: lightgrey;
 }
 

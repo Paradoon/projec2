@@ -1,4 +1,5 @@
 let levels = [];
+
 levels[0] = {
 
     map: [
@@ -22,7 +23,7 @@ levels[0] = {
         x:2,
         y:10
     },
-    theme: 'default'
+    theme:'default',
 };
 
 levels[1] = {
@@ -40,6 +41,7 @@ levels[1] = {
         [1,0,0,1,0,0,0,1,0,0,0],
         [0,0,0,1,0,1,0,0,0,1,0]
     ],
+    theme: 'sandland',
     player: {
         x:10,
         y:0
@@ -48,7 +50,6 @@ levels[1] = {
         x:0,
         y:10
     },
-    theme: 'terror'
 };
 
 levels[2] = {
