@@ -2,21 +2,25 @@ let levels = [];
 levels[0] = {
 
     map: [
-        [1,1,0,0,1,0,0,0],
-        [1,0,0,0,0,0,0,0],
-        [0,0,1,1,0,0,0,0],
-        [0,0,0,1,0,0,0,0],
-        [0,1,0,1,0,0,0,0],
-        [0,1,0,1,0,0,0,0],
-        [0,1,0,1,0,0,0,0]
+        [1,1,0,0,1,0,0,0,0,0,0],
+        [1,0,0,0,0,0,0,0,0,0,0],
+        [0,0,1,1,1,1,1,1,1,1,0],
+        [0,0,0,1,0,0,0,0,0,0,0],
+        [0,1,0,1,0,1,1,1,1,1,1],
+        [0,1,0,1,0,0,0,0,0,0,0],
+        [0,1,0,1,1,1,1,1,1,1,0],
+        [0,1,0,1,0,0,0,0,0,1,0],
+        [0,1,0,1,1,1,1,1,0,1,0],
+        [0,1,1,1,0,0,0,1,0,0,0],
+        [0,1,0,0,0,1,0,0,0,1,0]
     ],
     player: {
         x:0,
-        y:6
+        y:10
     },
     goal: {
-        x:7,
-        y:0
+        x:2,
+        y:10
     },
     theme: 'default'
 };
@@ -36,8 +40,8 @@ Game.prototype.createEl = function(x, y, type) {
     let el = document.createElement('div');
     el.className = type;
     el.style.width = el.style.height = this.tileDim + 'px';
-    el.style.left = x*this.tileDim + 'px';
-    el.style.top = y*this.tileDim + 'px';
+    el.style.left = x * this.tileDim + 'px';
+    el.style.top = y * this.tileDim + 'px';
     return el;
 }
 
@@ -85,19 +89,87 @@ Game.prototype.movePlayer = function(event) {
 
     switch (event.keyCode) {
         case 37:
+        this.moveLeft();
             //move player left
             break;
         case 38: 
+        this.moveUp();
             //move player up
             break;
         case 39:
+        this.moveRight();
             //move player right
             break;
         case 40:
+        this.moveDown();
             //move player down
         break;
     }
 }
+
+Game.prototype.moveUp = function() {
+    if (this.player.y == 0) {
+        return;
+    }
+
+    let nextTile = this.map[this.player.y-1][this.player.x];
+    if (nextTile == 1) {
+        return;
+    }
+
+    this.player.y -=1;
+    this.updateVert();
+}
+
+Game.prototype.moveDown = function() {
+    if (this.player.y == this.map.length - 1) {
+        return;
+    }
+
+    let nextTile = this.map[this.player.y+1][this.player.x];
+    if (nextTile == 1) {
+        return;
+    }
+
+    this.player.y +=1;
+    this.updateVert();
+}
+
+Game.prototype.moveLeft = function() {
+    if (this.player.x == 0) {
+        return;
+    }
+
+    let nextTile = this.map[this.player.y][this.player.x - 1];
+    if (nextTile == 1) {
+        return;
+    }
+
+    this.player.x -=1;
+    this.updateHoriz();
+}
+
+Game.prototype.moveRight = function() {
+    if (this.player.x == this.map[this.player.y].length - 1) {
+        return;
+    }
+
+    let nextTile = this.map[this.player.y][this.player.x + 1];
+    if (nextTile == 1) {
+        return;
+    }
+
+    this.player.x +=1;
+    this.updateHoriz();
+}
+
+Game.prototype.updateHoriz = function(sprite) {
+    this.player.el.style.left = this.player.x * this.tileDim + 'px';
+};
+
+Game.prototype.updateVert = function() {
+    this.player.el.style.top = this.player.y * this.tileDim + 'px';
+};
 
 function init() {
     let myGame = new Game('game-container-1', levels[0]);
