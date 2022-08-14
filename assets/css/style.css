@@ -112,13 +112,21 @@ div.layer div {
     border: 1px solid grey;
 }
 
-.floor {
+.loveland .wall {
     background-color: lightgrey;
+  }
+
+.loveland .floor {
+    background-color: red;
 }
 
 .wall {
     background-color: red;
   }
+
+.floor {
+    background-color: lightgrey;
+}
 
 .player, 
 .goal {

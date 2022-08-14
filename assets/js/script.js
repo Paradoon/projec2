@@ -25,15 +25,67 @@ levels[0] = {
     theme: 'default'
 };
 
+levels[1] = {
+
+    map: [
+        [1,1,0,0,1,0,0,0,0,0,0],
+        [1,0,0,0,0,0,1,0,0,1,0],
+        [0,0,1,1,1,1,1,1,1,1,0],
+        [0,0,0,0,0,0,1,0,0,0,0],
+        [0,1,0,1,0,1,1,0,1,1,1],
+        [0,1,0,1,0,0,0,0,0,0,0],
+        [0,1,0,1,1,1,1,1,1,1,0],
+        [0,1,0,0,0,0,0,0,0,1,0],
+        [0,1,0,1,1,1,1,1,0,1,0],
+        [1,0,0,1,0,0,0,1,0,0,0],
+        [0,0,0,1,0,1,0,0,0,1,0]
+    ],
+    player: {
+        x:10,
+        y:0
+    },
+    goal: {
+        x:0,
+        y:10
+    },
+    theme: 'terror'
+};
+
+levels[2] = {
+
+    map: [
+        [0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,1,0,0,0,1,0,0,0],
+        [0,0,1,0,1,0,1,0,1,0,0],
+        [0,0,1,0,0,1,0,0,1,0,0],
+        [0,0,0,1,0,0,0,1,0,0,0],
+        [0,0,0,0,1,0,1,0,0,0,0],
+        [0,1,0,0,0,1,0,0,0,0,0],
+        [0,1,0,0,0,0,0,0,0,1,0],
+        [0,1,0,1,1,1,1,1,0,1,0],
+        [1,0,0,1,0,0,0,1,0,0,0],
+        [0,0,0,1,0,1,0,0,0,1,0]
+    ],
+    player: {
+        x:10,
+        y:0
+    },
+    goal: {
+        x:0,
+        y:10
+    },
+    theme: 'loveland'
+};
+
 function Game(id, level) {
     this.el = document.getElementById(id);
+    this.level_idx = 0;
     this.tileTypes = ['floor', 'wall'];
     this.tileDim = 32;
     this.map = level.map;
     this.theme = level.theme;
     this.player = {...level.player};
     this.goal = {...level.goal};
-    this.player.el = null;
 }
 
 Game.prototype.createEl = function(x, y, type) {
@@ -192,34 +244,72 @@ Game.prototype.buttonListeners = function(instrux_msg, goal_msg) {
 
     up.addEventListener('mousedown', function() {
         obj.moveUp();
-        obj.checkGoal(instrux_msg, goal_msg)
+        obj.checkGoal(instrux_msg, goal_msg);
     });
 
     down.addEventListener('mousedown', function() {
         obj.moveDown();
-        obj.checkGoal(instrux_msg, goal_msg)
+        obj.checkGoal(instrux_msg, goal_msg);
     });
 
     left.addEventListener('mousedown', function() {
         obj.moveLeft();
-        obj.checkGoal(instrux_msg, goal_msg)
+        obj.checkGoal(instrux_msg, goal_msg);
     });
-    
+
     right.addEventListener('mousedown', function() {
         obj.moveRight();
-        obj.checkGoal(instrux_msg, goal_msg)
+        obj.checkGoal(instrux_msg, goal_msg);
     });
+}
+
+Game.prototype.placeLevel = function() {
+    this.populateMap();
+    this.sizeUp();
+    this.placeSprite('goal');
+    let playerSprite = this.placeSprite('player');
+    this.player.el = playerSprite;
+}
+
+Game.prototype.addMazeListener = function() {
+    let map = this.el.querySelector('.game-map');
+    let obj = this;
+    map.addEventListener('mousedown', function(e) {
+        if (obj.player.y != obj.goal.y ||
+            obj.player.x != obj.goal.x) {
+                return;
+            }
+            obj.changeLevel();
+            let layers = obj.el.querySelectorAll('.layer');
+            for (layer of layers) {
+                layer.innerHTML = '';
+            }
+            obj.placeLevel();
+            obj.checkGoal();
+    });
+};
+
+Game.prototype.changeLevel = function() {
+    this.level_idx++;
+    if (this.level_idx > levels.length -1) {
+        this.level_idx = 0;
+    }
+    let level = levels[this.level_idx];
+    this.map = level.map;
+    this.theme = level.theme;
+    this.player = {...level.player};
+    this.goal = {...level.goal};
+}
+
+Game.prototype.addListeners = function() {
+    this.keyboardListener();
+    this.buttonListeners();
+    this.addMazeListener();
 }
 
 function init() {
     let myGame = new Game('game-container-1', levels[0]);
-    myGame.populateMap();
-    myGame.sizeUp();
-    myGame.placeSprite('goal');
-    myGame.placeSprite('player');
-    let playerSprite = myGame.placeSprite('player');
-    myGame.player.el = playerSprite;
-    myGame.keyboardListener();
-    myGame.buttonListeners(instrux_msg, goal_msg);
+    myGame.placeLevel();
+    myGame.addListeners();
 }
 init();
