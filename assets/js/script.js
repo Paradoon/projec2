@@ -182,6 +182,35 @@ Game.prototype.checkGoal = function(instrux_msg, goal_msg) {
         }
 }
 
+Game.prototype.buttonListeners = function(instrux_msg, goal_msg) {
+    let up = document.getElementById('up');
+    let left = document.getElementById('left');
+    let down = document.getElementById('down');
+    let right = document.getElementById('right');
+
+    let obj = this;
+
+    up.addEventListener('mousedown', function() {
+        obj.moveUp();
+        obj.checkGoal(instrux_msg, goal_msg)
+    });
+
+    down.addEventListener('mousedown', function() {
+        obj.moveDown();
+        obj.checkGoal(instrux_msg, goal_msg)
+    });
+
+    left.addEventListener('mousedown', function() {
+        obj.moveLeft();
+        obj.checkGoal(instrux_msg, goal_msg)
+    });
+    
+    right.addEventListener('mousedown', function() {
+        obj.moveRight();
+        obj.checkGoal(instrux_msg, goal_msg)
+    });
+}
+
 function init() {
     let myGame = new Game('game-container-1', levels[0]);
     myGame.populateMap();
@@ -191,5 +220,6 @@ function init() {
     let playerSprite = myGame.placeSprite('player');
     myGame.player.el = playerSprite;
     myGame.keyboardListener();
+    myGame.buttonListeners(instrux_msg, goal_msg);
 }
 init();
