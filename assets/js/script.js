@@ -78,6 +78,7 @@ Game.prototype.placeSprite = function(type) {
 Game.prototype.keyboardListener = function() {
     document.addEventListener('keydown', event => {
         this.movePlayer(event);
+        this.checkGoal();
     });
 }
 
@@ -170,6 +171,16 @@ Game.prototype.updateHoriz = function(sprite) {
 Game.prototype.updateVert = function() {
     this.player.el.style.top = this.player.y * this.tileDim + 'px';
 };
+
+Game.prototype.checkGoal = function(instrux_msg, goal_msg) {
+    let body = document.querySelector('body');
+    if (this.player.y == this.goal.y && 
+        this.player.x == this.goal.x) {
+            body.className = 'success';
+        } else {
+            body.className = '';
+        }
+}
 
 function init() {
     let myGame = new Game('game-container-1', levels[0]);
