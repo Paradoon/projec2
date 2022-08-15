@@ -23,7 +23,7 @@ levels[0] = {
         x:2,
         y:10
     },
-    theme:'default',
+    theme: 'default',
 };
 
 levels[1] = {

@@ -128,11 +128,11 @@ div.layer div {
     background-color: black;
 }
 
-.default .wall {
+.wall {
     background-color: red;
-  }
+}
 
-.default .floor {
+.floor {
     background-color: lightgrey;
 }
 
