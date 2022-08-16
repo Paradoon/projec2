@@ -319,8 +319,10 @@ var downloadTimer = setInterval(function() {
 }, 1000);
 
 //add interval for blinking bg color when time closes finish
-//complete message
-
+//add complete message
+//add change level on left key down
+//change player design
+// change goal design
 
 Game.prototype.addListeners = function() {
     this.keyboardListener();
