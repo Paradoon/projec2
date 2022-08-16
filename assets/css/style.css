@@ -2,6 +2,8 @@ body {
     font-family: 'Calibri';
     transition: 0.2s ease;
     text-align: center;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 25%, rgba(78,82,97,1) 60%, rgba(0,212,255,1) 90%, rgba(255,255,255,1) 100%) no-repeat;
+    padding-top: 7%;
 }
 
 body.success {
@@ -101,6 +103,10 @@ p {
 .game-map {
     position: relative;
     margin: 0px auto;
+    border: 5px solid grey;
+    padding: 15px;
+    background-color: grey;
+    border-radius: 50px;
 }
 
 div.layer,
@@ -164,5 +170,6 @@ div.layer div {
 }
 
 #progressBar {
-    color: white;
+    width: 300px;
+    height: 30px;
 }

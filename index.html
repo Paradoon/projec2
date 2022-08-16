@@ -8,6 +8,10 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- Text -->
+    <p id="text-1" class="text">
+        Use arrow keys or buttons to move.
+    </p>
     <div id="game-container-1" class="game-container">
 
         <div id="map-and-controls">
@@ -20,6 +24,7 @@
 
                 <div id="success-msg">Goal reached! Tap the maze to change levels.</div>
             </div>
+            <progress value="0" max="20" id="progressBar"></progress>
             <!-- Controls -->
             <div id="controls">
                 <button id="up"></button>
@@ -30,11 +35,6 @@
                 <button id="down"></button>
             </div>
         </div>
-        <!-- Text -->
-        <p id="text-1" class="text">
-            Use cursor keys or buttons to move the marble.
-        </p>
-        <progress value="0" max="25" id="progressBar"></progress>
     </div>
     <script src="assets/js/script.js"></script>
 </body>

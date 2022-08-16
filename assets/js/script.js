@@ -65,11 +65,11 @@ levels[2] = {
         [0,1,0,0,0,1,0,0,0,1,0],
         [0,0,1,0,0,0,0,0,1,0,0],
         [0,0,0,1,0,0,0,1,0,0,0],
-        [0,0,0,0,1,0,1,0,0,0,0],
-        [0,0,0,0,0,1,0,0,0,1,0],
-        [0,0,0,0,0,0,0,0,0,1,0],
-        [1,0,0,1,0,0,0,1,0,0,0],
-        [0,0,0,0,0,1,0,0,0,0,0]
+        [0,1,0,0,1,0,1,0,0,1,0],
+        [0,0,1,0,0,1,0,0,1,0,0],
+        [0,0,0,1,0,0,0,1,0,0,0],
+        [1,0,0,0,1,0,1,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0]
     ],
     player: {
         x:10,
@@ -307,16 +307,20 @@ Game.prototype.changeLevel = function() {
 }
 
 //timer
-var timeleft = 25;
+var timeleft = 20;
 var downloadTimer = setInterval(function() {
     if (timeleft <= 0) {
         clearInterval(downloadTimer);
         alert("Game over!");
         location.reload();
     }
-    document.getElementById("progressBar").value = 25 - timeleft;
+    document.getElementById("progressBar").value = 20 - timeleft;
     timeleft -= 1;
 }, 1000);
+
+//add interval for blinking bg color when time closes finish
+//complete message
+
 
 Game.prototype.addListeners = function() {
     this.keyboardListener();
