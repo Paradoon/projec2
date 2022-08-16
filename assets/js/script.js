@@ -1,3 +1,7 @@
+window.addEventListener('load', (event) => {
+    alert("Complete all three levels before the timer runs out. Move with the arrows. Click OK to start the game! Have fun!");
+});
+
 let levels = [];
 
 levels[0] = {
@@ -58,14 +62,14 @@ levels[2] = {
         [0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,1,0,0,0,1,0,0,0],
         [0,0,1,0,1,0,1,0,1,0,0],
-        [0,0,1,0,0,1,0,0,1,0,0],
+        [0,1,0,0,0,1,0,0,0,1,0],
+        [0,0,1,0,0,0,0,0,1,0,0],
         [0,0,0,1,0,0,0,1,0,0,0],
         [0,0,0,0,1,0,1,0,0,0,0],
-        [0,1,0,0,0,1,0,0,0,0,0],
-        [0,1,0,0,0,0,0,0,0,1,0],
-        [0,1,0,1,1,1,1,1,0,1,0],
+        [0,0,0,0,0,1,0,0,0,1,0],
+        [0,0,0,0,0,0,0,0,0,1,0],
         [1,0,0,1,0,0,0,1,0,0,0],
-        [0,0,0,1,0,1,0,0,0,1,0]
+        [0,0,0,0,0,1,0,0,0,0,0]
     ],
     player: {
         x:10,
@@ -301,6 +305,18 @@ Game.prototype.changeLevel = function() {
     this.player = {...level.player};
     this.goal = {...level.goal};
 }
+
+//timer
+var timeleft = 25;
+var downloadTimer = setInterval(function() {
+    if (timeleft <= 0) {
+        clearInterval(downloadTimer);
+        alert("Game over!");
+        location.reload();
+    }
+    document.getElementById("progressBar").value = 25 - timeleft;
+    timeleft -= 1;
+}, 1000);
 
 Game.prototype.addListeners = function() {
     this.keyboardListener();

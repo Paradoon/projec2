@@ -163,3 +163,6 @@ div.layer div {
     width: calc(100% - 8px);
 }
 
+#progressBar {
+    color: white;
+}
