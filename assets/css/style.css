@@ -139,7 +139,7 @@ div.layer div {
 }
 
 .floor {
-    background-color: lightgrey;
+    background-color: lightgreen;
 }
 
 .player, 
@@ -149,13 +149,13 @@ div.layer div {
 }
 
 .player {
-    background-color: #90ee90;
+    background-color: #eee2dd;
     border: 1px solid green;
     transition: left 0.2s linear, top 0.2s linear;
 }
 
 .goal {
-    background-color: #FFD700;
+    background-color: #2600ff;
     border: 1px solid #98720b;
 }
 

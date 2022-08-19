@@ -234,8 +234,10 @@ Game.prototype.checkGoal = function(instrux_msg, goal_msg) {
     if (this.player.y == this.goal.y && 
         this.player.x == this.goal.x) {
             body.className = 'success';
+            return true;
         } else {
             body.className = '';
+            return false;
         }
 }
 
@@ -277,12 +279,14 @@ Game.prototype.placeLevel = function() {
 }
 
 Game.prototype.addMazeListener = function() {
-    let map = this.el.querySelector('.game-map');
     let obj = this;
-    map.addEventListener('mousedown', function(e) {
-        if (obj.player.y != obj.goal.y ||
+    window.addEventListener('keydown', function(e) {
+        console.log(e.key)
+        if (e.key == 'ArrowLeft' && obj.checkGoal()) {
+           // left arrow
+            if (obj.player.y != obj.goal.y ||
             obj.player.x != obj.goal.x) {
-                return;
+                    return;
             }
             obj.changeLevel();
             let layers = obj.el.querySelectorAll('.layer');
@@ -291,13 +295,16 @@ Game.prototype.addMazeListener = function() {
             }
             obj.placeLevel();
             obj.checkGoal();
+        }
     });
 };
 
 Game.prototype.changeLevel = function() {
     this.level_idx++;
     if (this.level_idx > levels.length -1) {
+        this.showComleteMsg();
         this.level_idx = 0;
+        return;
     }
     let level = levels[this.level_idx];
     this.map = level.map;
@@ -305,6 +312,12 @@ Game.prototype.changeLevel = function() {
     this.player = {...level.player};
     this.goal = {...level.goal};
 }
+
+Game.prototype.showComleteMsg = function() {
+    window.alert('Game completed successfully');
+    location.reload();
+}
+
 
 //timer
 var timeleft = 20;
