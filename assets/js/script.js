@@ -20,7 +20,7 @@ levels[0] = {
         [0,1,0,0,0,1,0,0,0,1,0]
     ],
     player: {
-        x:0,
+        x:3,
         y:10
     },
     goal: {
@@ -229,7 +229,7 @@ Game.prototype.updateVert = function() {
     this.player.el.style.top = this.player.y * this.tileDim + 'px';
 };
 
-Game.prototype.checkGoal = function(instrux_msg, goal_msg) {
+Game.prototype.checkGoal = function() {
     let body = document.querySelector('body');
     if (this.player.y == this.goal.y && 
         this.player.x == this.goal.x) {
@@ -320,7 +320,7 @@ Game.prototype.showCompleteMsg = function() {
 
 
 //timer
-var timeleft = 20;
+var timeleft = 200;
 var downloadTimer = setInterval(function() {
     if (timeleft <= 0) {
         clearInterval(downloadTimer);
