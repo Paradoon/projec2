@@ -1,5 +1,5 @@
 window.addEventListener('load', (event) => {
-    alert("Complete all three levels before the timer runs out. Move with the arrows. Click OK to start the game! Have fun!");
+    alert("Complete all three levels before the timer runs out. Move with the arrows, you are the light-grey circle and your goal is the blue circle. Click OK to start the game! Have fun!");
 });
 
 let levels = [];
@@ -302,7 +302,7 @@ Game.prototype.addMazeListener = function() {
 Game.prototype.changeLevel = function() {
     this.level_idx++;
     if (this.level_idx > levels.length -1) {
-        this.showComleteMsg();
+        this.showCompleteMsg();
         this.level_idx = 0;
         return;
     }
@@ -313,8 +313,8 @@ Game.prototype.changeLevel = function() {
     this.goal = {...level.goal};
 }
 
-Game.prototype.showComleteMsg = function() {
-    window.alert('Game completed successfully');
+Game.prototype.showCompleteMsg = function() {
+    window.alert('Congratulations, you completed all three levels below 20 seconds!');
     location.reload();
 }
 
@@ -332,10 +332,6 @@ var downloadTimer = setInterval(function() {
 }, 1000);
 
 //add interval for blinking bg color when time closes finish
-//add complete message
-//add change level on left key down
-//change player design
-// change goal design
 
 Game.prototype.addListeners = function() {
     this.keyboardListener();
