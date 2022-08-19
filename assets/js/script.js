@@ -320,7 +320,7 @@ Game.prototype.showCompleteMsg = function() {
 
 
 //timer
-var timeleft = 200;
+var timeleft = 20;
 var downloadTimer = setInterval(function() {
     if (timeleft <= 0) {
         clearInterval(downloadTimer);
