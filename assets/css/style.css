@@ -93,9 +93,9 @@ p {
 .game-map {
     position: relative;
     margin: 0px auto;
-    border: 5px solid grey;
+    border: 5px solid darkslategrey;
     padding: 15px;
-    background-color: grey;
+    background-color: black;
     border-radius: 50px;
 }
 
@@ -108,22 +108,6 @@ div.layer div {
     border: 1px solid grey;
 }
 
-.loveland .wall {
-    background-color: lightgrey;
-  }
-
-.loveland .floor {
-    background-color: red;
-}
-
-.sandland .wall {
-    background-color: yellow;
-  }
-
-.sandland .floor {
-    background-color: black;
-}
-
 .wall {
     background-color: red;
 }
@@ -132,21 +116,19 @@ div.layer div {
     background-color: lightgreen;
 }
 
-.player, 
-.goal {
-    transform-origin: center;
-    transform:scale(0.85);
-}
-
 .player {
-    background-color: #eee2dd;
-    border: 1px solid green;
+    background-color: #513f3a;
+    border: 1px solid #bbd8d8;
     transition: left 0.2s linear, top 0.2s linear;
+    transform-origin: center;
+    transform:scale(0.60);
 }
 
 .goal {
     background-color: #2600ff;
-    border: 1px solid #98720b;
+    border: 2px solid #0cbdea;
+    transform-origin: left;
+    transform:scale(0.90);
 }
 
 #progressBar {

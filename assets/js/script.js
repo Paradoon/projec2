@@ -10,7 +10,7 @@ let levels = [];
 levels[0] = {
 
     map: [
-        [1,1,0,0,1,0,0,0,0,0,0],
+        [0,1,0,0,1,0,0,0,0,0,0],
         [1,0,0,0,0,0,0,0,0,0,0],
         [0,0,1,1,1,1,1,1,1,1,0],
         [0,0,0,1,0,0,0,0,0,0,0],
@@ -36,7 +36,7 @@ levels[0] = {
 levels[1] = {
 
     map: [
-        [1,1,0,0,1,0,0,0,0,0,0],
+        [0,1,0,0,1,0,0,0,0,0,0],
         [1,0,0,0,0,0,1,0,0,1,0],
         [0,0,1,1,1,1,1,1,1,1,0],
         [0,0,0,0,0,0,1,0,0,0,0],
@@ -119,12 +119,14 @@ Game.prototype.populateMap = function() {
     }
 }
 
+
 Game.prototype.sizeUp = function() {
     let map = this.el.querySelector('.game-map');
     map.style.height = this.map.length * this.tileDim + 'px';
     map.style.width = this.map[0].length * this.tileDim + 'px';
 };
 
+//sprite for placement on the map
 Game.prototype.placeSprite = function(type) {
     let x = this[type].x
     let y = this[type].y
@@ -136,6 +138,7 @@ Game.prototype.placeSprite = function(type) {
     return sprite;
 }
 
+//listens for keyboard presses
 Game.prototype.keyboardListener = function() {
     document.addEventListener('keydown', event => {
         this.movePlayer(event);
