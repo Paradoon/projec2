@@ -106,6 +106,7 @@ div.layer div {
 
 #tiles div {
     border: 1px solid grey;
+    border-radius: 4px;
 }
 
 .wall {

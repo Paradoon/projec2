@@ -1,8 +1,7 @@
-//Welcome instructive message
+//Welcome message
 window.addEventListener('load', (event) => {
-    alert("Complete all three levels before the timer runs out. Move with the arrows, you are the light-grey circle and your goal is the blue circle. Click OK to start the game! Have fun!");
+    alert("Complete all three levels before the timer runs out. Move with the arrows, you are the dark-grey circle and your goal is the blue portal circle. Click OK to start the game! Have fun!");
 });
-
 
 //Levels and maps
 let levels = [];
@@ -97,6 +96,7 @@ function Game(id, level) {
     this.goal = {...level.goal};
 }
 
+//tile creation
 Game.prototype.createEl = function(x, y, type) {
     let el = document.createElement('div');
     el.className = type;
@@ -106,6 +106,7 @@ Game.prototype.createEl = function(x, y, type) {
     return el;
 }
 
+//map creation
 Game.prototype.populateMap = function() {
     this.el.className = 'game-container' + this.theme;
     let tiles = document.getElementById('tiles');
@@ -119,7 +120,7 @@ Game.prototype.populateMap = function() {
     }
 }
 
-
+//sizing up the game-map
 Game.prototype.sizeUp = function() {
     let map = this.el.querySelector('.game-map');
     map.style.height = this.map.length * this.tileDim + 'px';
@@ -138,7 +139,7 @@ Game.prototype.placeSprite = function(type) {
     return sprite;
 }
 
-//listens for keyboard presses
+//listens for keyboard presses to move player and check for goal position
 Game.prototype.keyboardListener = function() {
     document.addEventListener('keydown', event => {
         this.movePlayer(event);
@@ -146,7 +147,7 @@ Game.prototype.keyboardListener = function() {
     });
 }
 
-//key movements
+//key events
 Game.prototype.movePlayer = function(event) {
     event.preventDefault();
     if (event.keyCode < 37 || event.keyCode > 40) {
@@ -173,6 +174,8 @@ Game.prototype.movePlayer = function(event) {
     }
 }
 
+
+//player movements
 Game.prototype.moveUp = function() {
     if (this.player.y == 0) {
         return;
@@ -237,6 +240,7 @@ Game.prototype.updateVert = function() {
     this.player.el.style.top = this.player.y * this.tileDim + 'px';
 };
 
+
 //Checks if player is on goal position and executes if so
 Game.prototype.checkGoal = function() {
     let body = document.querySelector('body');
@@ -250,7 +254,8 @@ Game.prototype.checkGoal = function() {
         }
 }
 
-//Movement with buttons
+
+//movement with buttons
 Game.prototype.buttonListeners = function(instrux_msg, goal_msg) {
     let up = document.getElementById('up');
     let left = document.getElementById('left');
@@ -280,6 +285,8 @@ Game.prototype.buttonListeners = function(instrux_msg, goal_msg) {
     });
 }
 
+
+//gathered map logics
 Game.prototype.placeLevel = function() {
     this.populateMap();
     this.sizeUp();
@@ -287,6 +294,7 @@ Game.prototype.placeLevel = function() {
     let playerSprite = this.placeSprite('player');
     this.player.el = playerSprite;
 }
+
 
 //Checks if player is on goal position and changes level with left key press and place new level
 Game.prototype.addMazeListener = function() {
@@ -310,6 +318,8 @@ Game.prototype.addMazeListener = function() {
     });
 };
 
+
+//adding next level
 Game.prototype.changeLevel = function() {
     this.level_idx++;
     if (this.level_idx > levels.length -1) {
@@ -324,14 +334,15 @@ Game.prototype.changeLevel = function() {
     this.goal = {...level.goal};
 }
 
-//Show complete message if on goal position and on level idx 2 
+
+//show complete message if on goal position and on level idx 2 
 Game.prototype.showCompleteMsg = function() {
     window.alert('Congratulations, you completed all three levels below 20 seconds!');
     location.reload();
 }
 
 
-//Timer
+//timer
 var timeleft = 20;
 var downloadTimer = setInterval(function() {
     if (timeleft <= 0) {
@@ -343,14 +354,14 @@ var downloadTimer = setInterval(function() {
     timeleft -= 1;
 }, 1000);
 
-//add interval for blinking bg color when time closes finish
-
+//functions gathered
 Game.prototype.addListeners = function() {
     this.keyboardListener();
     this.buttonListeners();
     this.addMazeListener();
 }
 
+//press play
 function init() {
     let myGame = new Game('game-container-1', levels[0]);
     myGame.placeLevel();
