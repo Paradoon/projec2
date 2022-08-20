@@ -1,7 +1,10 @@
+//Welcome instructive message
 window.addEventListener('load', (event) => {
     alert("Complete all three levels before the timer runs out. Move with the arrows, you are the light-grey circle and your goal is the blue circle. Click OK to start the game! Have fun!");
 });
 
+
+//Levels and maps
 let levels = [];
 
 levels[0] = {
@@ -20,7 +23,7 @@ levels[0] = {
         [0,1,0,0,0,1,0,0,0,1,0]
     ],
     player: {
-        x:3,
+        x:0,
         y:10
     },
     goal: {
@@ -67,9 +70,9 @@ levels[2] = {
         [0,0,0,1,0,0,0,1,0,0,0],
         [0,1,0,0,1,0,1,0,0,1,0],
         [0,0,1,0,0,1,0,0,1,0,0],
-        [0,0,0,1,0,0,0,1,0,0,0],
-        [1,0,0,0,1,0,1,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0]
+        [1,0,0,1,0,0,0,1,0,0,1],
+        [1,1,0,0,1,0,1,0,0,1,0],
+        [0,0,0,0,0,0,0,0,1,0,0]
     ],
     player: {
         x:10,
@@ -82,6 +85,7 @@ levels[2] = {
     theme: 'loveland'
 };
 
+//Game-map construction
 function Game(id, level) {
     this.el = document.getElementById(id);
     this.level_idx = 0;
@@ -139,6 +143,7 @@ Game.prototype.keyboardListener = function() {
     });
 }
 
+//key movements
 Game.prototype.movePlayer = function(event) {
     event.preventDefault();
     if (event.keyCode < 37 || event.keyCode > 40) {
@@ -229,6 +234,7 @@ Game.prototype.updateVert = function() {
     this.player.el.style.top = this.player.y * this.tileDim + 'px';
 };
 
+//Checks if player is on goal position and executes if so
 Game.prototype.checkGoal = function() {
     let body = document.querySelector('body');
     if (this.player.y == this.goal.y && 
@@ -241,6 +247,7 @@ Game.prototype.checkGoal = function() {
         }
 }
 
+//Movement with buttons
 Game.prototype.buttonListeners = function(instrux_msg, goal_msg) {
     let up = document.getElementById('up');
     let left = document.getElementById('left');
@@ -278,6 +285,7 @@ Game.prototype.placeLevel = function() {
     this.player.el = playerSprite;
 }
 
+//Checks if player is on goal position and changes level with left key press and place new level
 Game.prototype.addMazeListener = function() {
     let obj = this;
     window.addEventListener('keydown', function(e) {
@@ -313,18 +321,19 @@ Game.prototype.changeLevel = function() {
     this.goal = {...level.goal};
 }
 
+//Show complete message if on goal position and on level idx 2 
 Game.prototype.showCompleteMsg = function() {
     window.alert('Congratulations, you completed all three levels below 20 seconds!');
     location.reload();
 }
 
 
-//timer
+//Timer
 var timeleft = 20;
 var downloadTimer = setInterval(function() {
     if (timeleft <= 0) {
         clearInterval(downloadTimer);
-        alert("Game over!");
+        alert("Game over! Click OK to try again.");
         location.reload();
     }
     document.getElementById("progressBar").value = 20 - timeleft;

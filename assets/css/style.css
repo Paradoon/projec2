@@ -1,19 +1,9 @@
 body {
     font-family: 'Calibri';
-    transition: 0.2s ease;
+    transition: 0.5s ease;
     text-align: center;
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 25%, rgba(78,82,97,1) 60%, rgba(0,212,255,1) 90%, rgba(255,255,255,1) 100%) no-repeat;
     padding-top: 7%;
-}
-
-body.success {
-    background-color: #b7f0b7;
-    transition: 0.2s ease;
-}
-
-body.success #success-msg {
-    opacity: 1;
-    transition: opacity 0.2 ease;
 }
 
 .game-container {
@@ -157,16 +147,6 @@ div.layer div {
 .goal {
     background-color: #2600ff;
     border: 1px solid #98720b;
-}
-
-#success-msg {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    position: absolute;
-    padding: 5px 5px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    width: calc(100% - 8px);
 }
 
 #progressBar {
