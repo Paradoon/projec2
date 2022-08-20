@@ -3,6 +3,7 @@ window.addEventListener('load', (event) => {
     alert("Complete all three levels before the timer runs out. Move with the arrows, you are the dark-grey circle and your goal is the blue portal circle. Click OK to start the game! Have fun!");
 });
 
+
 //Levels and maps
 let levels = [];
 
@@ -84,6 +85,7 @@ levels[2] = {
     theme: 'loveland'
 };
 
+
 //Game-map construction
 function Game(id, level) {
     this.el = document.getElementById(id);
@@ -96,6 +98,7 @@ function Game(id, level) {
     this.goal = {...level.goal};
 }
 
+
 //tile creation
 Game.prototype.createEl = function(x, y, type) {
     let el = document.createElement('div');
@@ -105,6 +108,7 @@ Game.prototype.createEl = function(x, y, type) {
     el.style.top = y * this.tileDim + 'px';
     return el;
 }
+
 
 //map creation
 Game.prototype.populateMap = function() {
@@ -120,12 +124,14 @@ Game.prototype.populateMap = function() {
     }
 }
 
+
 //sizing up the game-map
 Game.prototype.sizeUp = function() {
     let map = this.el.querySelector('.game-map');
     map.style.height = this.map.length * this.tileDim + 'px';
     map.style.width = this.map[0].length * this.tileDim + 'px';
 };
+
 
 //sprite for placement on the map
 Game.prototype.placeSprite = function(type) {
@@ -139,6 +145,7 @@ Game.prototype.placeSprite = function(type) {
     return sprite;
 }
 
+
 //listens for keyboard presses to move player and check for goal position
 Game.prototype.keyboardListener = function() {
     document.addEventListener('keydown', event => {
@@ -146,6 +153,7 @@ Game.prototype.keyboardListener = function() {
         this.checkGoal();
     });
 }
+
 
 //key events
 Game.prototype.movePlayer = function(event) {
@@ -335,7 +343,7 @@ Game.prototype.changeLevel = function() {
 }
 
 
-//show complete message if on goal position and on level idx 2 
+//show complete message
 Game.prototype.showCompleteMsg = function() {
     window.alert('Congratulations, you completed all three levels below 20 seconds!');
     location.reload();
@@ -354,12 +362,14 @@ var downloadTimer = setInterval(function() {
     timeleft -= 1;
 }, 1000);
 
+
 //functions gathered
 Game.prototype.addListeners = function() {
     this.keyboardListener();
     this.buttonListeners();
     this.addMazeListener();
 }
+
 
 //press play
 function init() {

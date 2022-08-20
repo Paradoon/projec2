@@ -105,8 +105,8 @@ div.layer div {
 }
 
 #tiles div {
-    border: 1px solid grey;
-    border-radius: 4px;
+    border: 1px solid darkgrey;
+    border-radius: 3px;
 }
 
 .wall {
