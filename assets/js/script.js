@@ -309,8 +309,8 @@ Game.prototype.addMazeListener = function() {
     let obj = this;
     window.addEventListener('keydown', function(e) {
         console.log(e.key)
-        if (e.key == 'ArrowLeft' && obj.checkGoal()) {
-           // left arrow
+        if (e.key == 'ArrowLeft' || 'mousedown' && obj.checkGoal()) {
+           // left arrow or mousedown for mobile-device
             if (obj.player.y != obj.goal.y ||
             obj.player.x != obj.goal.x) {
                     return;
