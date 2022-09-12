@@ -140,7 +140,7 @@ div.layer div {
     height: 30px;
 }
 
-@media (max-width: 500) {
+@media screen and (max-width: 500px) {
     .game-map {
         padding: 0px;
         border: 0px;
