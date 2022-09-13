@@ -40,7 +40,7 @@ Maze game built with javascript in 2D. You are the darkgrey ball that needs to g
 More time for mobile version.
 
 <h2>Testing</h2>
-<br>HTML TEST: Document checking completed. No errors or warnings to show.
+HTML TEST: Document checking completed. No errors or warnings to show.
 <br>CSS TEST: CSS level 3 + SVG
 <br>JAVASCRIPT TEST: No errors.
 
