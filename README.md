@@ -24,7 +24,7 @@ Maze game built with javascript in 2D. You are the darkgrey ball that needs to g
 <li>Level change</li>
 <img width="299" alt="Screenshot 2022-09-13 092855" src="https://user-images.githubusercontent.com/33704515/189855149-97107822-6cd4-40e0-9403-4d3d514f5ffe.png">
 
-<li>Floor tiles and walls</li>
+<li>Floor tiles are displayed with green color and walls are displayed with red color</li>
 <img width="293" alt="Screenshot 2022-09-13 092755" src="https://user-images.githubusercontent.com/33704515/189855196-f78536cb-b284-41d1-adcf-36ead2fbd406.png">
 
 <li>Time left</li>
