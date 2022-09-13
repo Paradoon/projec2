@@ -33,11 +33,15 @@ Maze game built with javascript in 2D. You are the darkgrey ball that needs to g
 <li>Fail message</li>
 <img width="1123" alt="Screenshot 2022-09-13 093151" src="https://user-images.githubusercontent.com/33704515/189855357-01d8891a-87fc-4618-b604-8e42c8b1c99f.png">
 
+<li>Complete message</li>
+<img width="1116" alt="Screenshot 2022-09-13 093049" src="https://user-images.githubusercontent.com/33704515/189855838-207a678d-4127-4180-808c-fae8b6f6b84a.png">
+
+
 <h1>Features left to implement</h1>
 Possibly add more levels and/or squares to get more time.
 
 <h2>Testing</h2>
-<br>HMTL TEST
+<br>HTML TEST
 <br>CSS TEST
 <br>JAVASCRIPT TEST
 
@@ -46,6 +50,7 @@ Possibly add more levels and/or squares to get more time.
 
 <h2>Bugs</h2>
 There is a bug that only appears sometimes, that if you complete the game 1-2 seconds before time runs out, then you will get the complete message but also the fail message right after.
+
 <h2>Deploy</h2>
 
 <h2>Credits</h2>
