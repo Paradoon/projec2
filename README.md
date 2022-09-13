@@ -38,15 +38,16 @@ Maze game built with javascript in 2D. You are the darkgrey ball that needs to g
 
 
 <h1>Features left to implement</h1>
-Possibly add more levels and/or squares to get more time.
+More time for mobile version.
 
 <h2>Testing</h2>
 <br>HTML TEST: Document checking completed. No errors or warnings to show.
 <br>CSS TEST: CSS level 3 + SVG
-<br>JAVASCRIPT TEST: 
+<br>JAVASCRIPT TEST: No errors.
 
 
 <h2>Future improvement</h2>
+Possibly add more levels, better graphics 
 
 <h2>Bugs</h2>
 There is a bug that only appears sometimes, that if you complete the game 1-2 seconds before time runs out, then you will get the complete message but also the fail message right after.
