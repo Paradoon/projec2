@@ -15,25 +15,25 @@ Maze game built with javascript in 2D. You are the darkgrey ball that needs to g
 
 <h2>Features</h2>
 
-<li>Start message</li>
+<li>Start message appears when you load the page</li>
 <img width="1115" alt="Screenshot 2022-09-13 092638" src="https://user-images.githubusercontent.com/33704515/189855032-ecf4c4ce-4975-4f96-8bc3-7ab72c0eb930.png">
 
-<li>Keybuttons</li>
+<li>Key buttons for movement on mobile</li>
 <img width="99" alt="Screenshot 2022-09-13 093334" src="https://user-images.githubusercontent.com/33704515/189855101-5793eeb2-2a53-47dc-8fd0-8f02a24a1cec.png">
 
-<li>Level change</li>
+<li>Level change executes when you reach the goal (blue portal) for each level</li>
 <img width="299" alt="Screenshot 2022-09-13 092855" src="https://user-images.githubusercontent.com/33704515/189855149-97107822-6cd4-40e0-9403-4d3d514f5ffe.png">
 
 <li>Floor tiles are displayed with green color and walls are displayed with red color</li>
 <img width="293" alt="Screenshot 2022-09-13 092755" src="https://user-images.githubusercontent.com/33704515/189855196-f78536cb-b284-41d1-adcf-36ead2fbd406.png">
 
-<li>Time left</li>
+<li>Time left is shown as a progress bar</li>
 <img width="254" alt="Screenshot 2022-09-13 093945" src="https://user-images.githubusercontent.com/33704515/189855269-47582b73-9f12-4874-af23-aa4094276bf1.png">
 
-<li>Fail message</li>
+<li>Fail message appears if you don't complete in time</li>
 <img width="1123" alt="Screenshot 2022-09-13 093151" src="https://user-images.githubusercontent.com/33704515/189855357-01d8891a-87fc-4618-b604-8e42c8b1c99f.png">
 
-<li>Complete message</li>
+<li>Complete message appears if you complete all levels in time</li>
 <img width="1116" alt="Screenshot 2022-09-13 093049" src="https://user-images.githubusercontent.com/33704515/189855838-207a678d-4127-4180-808c-fae8b6f6b84a.png">
 
 
@@ -51,7 +51,12 @@ Possibly add more levels and/or squares to get more time.
 <h2>Bugs</h2>
 There is a bug that only appears sometimes, that if you complete the game 1-2 seconds before time runs out, then you will get the complete message but also the fail message right after.
 
-<h2>Deploy</h2>
+<h2>Deployment</h2>
 
 <h2>Credits</h2>
-
+Primary credits go to:
+Code Institute, and students Jess_5P and Lilly Sunnegård_5P, and my fantastic mentor Akshat Garg.
+Secondary credits go to:
+www.W3schools.com, www.stackoverflow.com, https://medium.com/codex/build-a-maze-game-with-vanilla-javascript-part-1-of-2-ddfd35e84e93 and www.google.com.
+<h3>Content</h3>
+The content is inspired by my life experiences and discoveries, by time, and my nephew. I focused on how to touch the player and to give the feeling of stress and dedication rather than design, since in the end, it's a game. 
