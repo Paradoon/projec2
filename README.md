@@ -61,7 +61,7 @@ The live link can be found here - https://paradoon.github.io/projec2/
 
 <h2>Credits</h2>
 Primary credits go to:
-https://medium.com/codex/build-a-maze-game-with-vanilla-javascript-part-1-of-2-ddfd35e84e93
+https://medium.com/codex/build-a-maze-game-with-vanilla-javascript-part-1-of-2-ddfd35e84e93 <br>
 Code Institute, and students Jess_5P and Lilly Sunnegård_5P, and my fantastic mentor Akshat Garg.
 Secondary credits go to:
 www.W3schools.com, www.stackoverflow.com, and www.google.com.
