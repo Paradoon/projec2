@@ -1,6 +1,5 @@
 <h1>Maze Running</h1>
-<h2>Time to get stressed.</h2>
-<h2>Clock is ticking. Find your way to the blue portal to get to next level, you have 20 seconds to complete all levels. Move with key arrows.</h2>
+<h2>Time to get stressed. Clock is ticking. Find your way to the blue portal to get to next level, you have 20 seconds to complete all levels. Move with key arrows.</h2>
 
 <h2>Live page</h2>
 Live website: <a href="https://paradoon.github.io/projec2/" rel="nofollow">Maze Running</a>
